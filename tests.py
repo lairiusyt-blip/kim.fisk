@@ -126,17 +126,17 @@ class TestExpenseTracker(unittest.TestCase):
     # ========== ГРАНИЧНЫЕ ТЕСТЫ (5) ==========
     
     def test_bnd_01_very_large_amount(self):
-        """BND-01: Очень большая сумма (9_999_999)"""
+        """BND-01: Очень большая сумма"""
         is_valid, result = self.app.validate_input("9999999", "2026-04-30")
         self.assertTrue(is_valid)
     
     def test_bnd_02_maximum_amount(self):
-        """BND-02: Максимальная сумма (10_000_000)"""
+        """BND-02: Максимальная сумма"""
         is_valid, result = self.app.validate_input("10000000", "2026-04-30")
         self.assertTrue(is_valid)
     
     def test_bnd_03_exceeds_limit(self):
-        """BND-03: Сумма больше лимита (10_000_001)"""
+        """BND-03: Сумма больше лимита"""
         is_valid, result = self.app.validate_input("10000001", "2026-04-30")
         self.assertFalse(is_valid)
     
